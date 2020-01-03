@@ -5,8 +5,32 @@
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
  </head>
 <body>
-  <div class="container">
-<div class="col-lg-7" style="background-color:green !important;"></div>
+<div class="container">
+  <div class="col-sm-6">
+
+
+      <form action="/add" method="POST">
+
+
+      <div class="input-group">
+        <input type="text" name="tasks" class="form-control width-100">
+   <span class="input-group-btn">
+
+        <button class="btn btn-primary" type="submit">Add Task</button>
+   </span>
+</div>
+</form>
+<ul class="list-group">
+  <% for (var i=0;i<tasks.length;i++){%>
+<li class="list-group-item"><%= tasks[i] %></li>
+<%  } %>
+
+</ul>
+
+
+
+
+  </div>
 </div>
 </body>
 </html>
