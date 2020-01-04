@@ -17,14 +17,12 @@ router.get('/',(req,res)=>{
   // console.log(db_tasks)
   result=mdb.get_data()
 
-
-
-
 res.render("index",{tasks:tasks})
 });
 
 router.post('/add',(req,res)=>{
 var task= req.body.tasks;
+
 mdb.insert_data(task)
 tasks.push(task)
 res.redirect("/")

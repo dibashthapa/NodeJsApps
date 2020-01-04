@@ -20,19 +20,22 @@ this.conn= mysql.createConnection({
 })
 };
 insert_data(data){
-
   var sql= "INSERT INTO tasks(tasks) VALUES (?)";
-  this.conn.query(sql,[data],(err,result)=>{
-    if (err) throw err;
-  });
+this.conn.query(sql,[data],(err)=>{
+  if(err) throw err
+
+})
 }
+
+
 get_data(){
   var sql="SELECT * FROM tasks"
  this.conn.query(sql,(err,result)=>{
    if (err) throw err;
 var data= JSON.parse(JSON.stringify(result))
-return data;
-
+return data
  })
-       }
-                  }
+
+  }
+
+  }
