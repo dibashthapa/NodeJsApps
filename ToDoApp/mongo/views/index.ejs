@@ -1,0 +1,42 @@
+<html>
+<head><title>Home</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../style/style.css">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ </head>
+<body>
+  <div class="vertical-center">
+<div class="container">
+
+  <div class="col-sm-6">
+
+
+      <form action="/add" method="POST">
+
+
+      <div class="input-group">
+        <input type="text" name="tasks" class="form-control width-100">
+   <span class="input-group-btn">
+
+        <button class="btn btn-primary" type="submit">Add Task</button>
+   </span>
+   </form>
+</div>
+<div class="overflow-visible">
+<ul class="list-group">
+<% for(var i in tasks){%>
+  <li class="list-group-item"><%= tasks[i].tasks%></li>
+<%}%>
+</ul>
+</div>
+
+
+
+
+  </div>
+
+</div>
+</div>
+</body>
+</html>
