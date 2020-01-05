@@ -26,7 +26,7 @@ tasks=['I am going to college','i am a guy']
 // res.render("index",{tasks:tasks})
 // });
 router.get('/',(req,res)=>{
-  var sql="SELECT * FROM tasks"
+  var sql="SELECT DISTINCT * FROM tasks"
   mdb.conn.query(sql,(err,result)=>{
 if(err) throw err;
 var data= JSON.parse(JSON.stringify(result))
