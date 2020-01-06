@@ -1,2 +1,3 @@
 # Learning-Node
-I am Learning Node js and Vue Js. This repository is just for tracking my changes and edits
+I am Learning Node js. I will post all the beginner applications of Node Js here
+to encourage others to look into my code and learn from it
