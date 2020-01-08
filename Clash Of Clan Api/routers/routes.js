@@ -3,23 +3,44 @@ const express= require("express");
 const request = require("request");
 const config= require("../config.json");
 const routes = express.Router();
+const path=require("path")
 routes.get("/",(req,res)=>{
-  res.json({
-    message:"Routes created"
-  })
+  res.render("index")
 })
-routes.get("/api",(req,res)=>{
-  var playerTag="%239G92U80LY"
-  var data=JSON.parse(JSON.stringify(config))
 
-request.get("https://api.clashofclans.com/v1/players/"+playerTag,{
-  'auth':
-{
-  'bearer':data[0].token
-}
-},(err,response,body)=>{
+routes.get("/add",(req,res)=>{
+  if(req.param("playerTag")){
+    var playerTag=req.param("playerTag")
+// var clanTag="#CGL98LLV"
+      // var playerTag="%239G92U80LY"
 
-res.json(JSON.parse(body))
+      var data=JSON.parse(JSON.stringify(config))
+
+      request.get("https://api.clashofclans.com/v1/players/"+"%23"+playerTag,{
+        'auth':
+        {
+          'bearer':data[0].token
+        }
+      },(err,response,body)=>{
+
+        res.json(JSON.parse(body))
+      })
+
+  }
+  else{
+    var clantag=req.param("clanTag")
+    var data=JSON.parse(JSON.stringify(config))
+
+    request.get("https://api.clashofclans.com/v1/clans/"+"%23"+clantag,{
+      'auth':
+      {
+        'bearer':data[0].token
+      }
+    },(err,response,body)=>{
+
+      res.json(JSON.parse(body))
+    })
+  }
 })
-});
+
 module.exports= routes
