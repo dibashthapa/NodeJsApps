@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <title>Genearting Tokens</title>
+</head>
+<body>
+
+    <div class="container bg-dark">
+
+    <form class="form-group" action="/login" method="POST">
+      <input type="text"  id="myInput" name="token" class="form-controlw-100" placeholder="Generating Your Token" value="<%= token %>">
+      <button type="button" onclick="select()" class="btn btn-info">Copy</button>
+      <button type="submit" class="btn btn-primary">Generate Token</button>
+    </form>
+    <p>Use the above token to get the data from  our server Use that Token in authentication Header . Thank You</p>
+  </div>
+
+  <script type="text/javascript">
+    function select(){
+      var copyText = document.getElementById("myInput");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999)
+      document.execCommand("copy");
+      alert("copied")
+    }
+  </script>
+</body>
+</html>
