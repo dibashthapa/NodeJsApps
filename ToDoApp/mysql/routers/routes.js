@@ -26,7 +26,7 @@ tasks=['I am going to college','i am a guy']
 // res.render("index",{tasks:tasks})
 // });
 router.get('/',(req,res)=>{
-  var sql="SELECT DISTINCT * FROM tasks"
+    var sql="SELECT DISTINCT * FROM tasks"
   mdb.conn.query(sql,(err,result)=>{
 if(err) throw err;
 var data= JSON.parse(JSON.stringify(result))
@@ -45,5 +45,10 @@ mdb.insert_data(task)
 tasks.push(task)
 res.redirect("/")
 });
-
+router.get("/delete/:data",(req,res)=>{
+  
+  var data=parseInt(req.params.data);
+  mdb.delete_data(data)
+  res.redirect("/")
+})
 module.exports= router
