@@ -46,9 +46,15 @@ tasks.push(task)
 res.redirect("/")
 });
 router.get("/delete/:data",(req,res)=>{
-  
+
   var data=parseInt(req.params.data);
   mdb.delete_data(data)
+  res.redirect("/")
+})
+router.post("/update",(req,res)=>{
+  var data= req.body.tasks;
+  var id = req.body.id;
+  mdb.update_data(id,data);
   res.redirect("/")
 })
 module.exports= router

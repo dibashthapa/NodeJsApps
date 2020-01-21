@@ -33,8 +33,11 @@ this.conn.query(sql,(err)=>{
 
 });
 
-
-
-};
-  
 }
+update_data(id,task){
+  var sql="UPDATE tasks SET tasks=? WHERE id=?";
+  this.conn.query(sql,[task,id],(err)=>{
+    if (err) throw err;
+  })
+}
+};
